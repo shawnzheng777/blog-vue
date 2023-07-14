@@ -32,7 +32,12 @@ axiosInstance.interceptors.response.use(
     }
     return Promise.resolve(response.data);
   },
-  (error) => Promise.reject(error)
+  (error) => {
+    NProgress.done();
+    const { response } = error;
+    promptMsg(response.data.msg, response.data.code, response.config.url);
+    return Promise.reject(error);
+  }
 );
 
 /**

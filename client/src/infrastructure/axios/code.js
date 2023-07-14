@@ -1,4 +1,4 @@
-import { ElMessage } from "element-plus";
+import { ElNotification } from "element-plus";
 
 /**
  * 网络错误码
@@ -36,5 +36,9 @@ import { ElMessage } from "element-plus";
 
 export const promptMsg = (msg = "", code = "", url = "") => {
   const api = url?.substr(url?.lastIndexOf("/") + 1);
-  ElMessage.error(`${msg} [${api}: ${code}]`);
+  ElNotification({
+    title: "请求错误",
+    message: `${msg} [${api}: ${code}]`,
+    type: "error",
+  });
 };
