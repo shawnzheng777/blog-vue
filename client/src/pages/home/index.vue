@@ -1,5 +1,5 @@
 <template>
-  <view>home</view>
+  <view>home333</view>
 </template>
 
 <script>
